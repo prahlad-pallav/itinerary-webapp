@@ -5,7 +5,6 @@ A modern, feature-rich vacation planning application built with React and Redux.
 ![React](https://img.shields.io/badge/React-18.3.1-blue)
 ![Redux](https://img.shields.io/badge/Redux_Toolkit-2.11.2-purple)
 ![Vite](https://img.shields.io/badge/Vite-6.0.1-green)
-![License](https://img.shields.io/badge/License-MIT-yellow)
 
 ## 🌟 Features
 

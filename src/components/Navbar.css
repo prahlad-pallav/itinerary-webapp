@@ -27,6 +27,11 @@
 .Navbar__Brand {
 }
 
+.Navbar__BrandLink {
+  text-decoration: none;
+  display: block;
+}
+
 .Navbar__Brand h2 {
   margin: 0;
   font-size: 20px;
@@ -65,11 +70,21 @@
   border-radius: 8px;
   transition: all 0.2s ease;
   position: relative;
+  display: block;
 }
 
 .Navbar__MenuLink:hover {
   color: var(--text-primary);
   background: var(--bg-tertiary);
+}
+
+.Navbar__MenuLink--active {
+  color: var(--accent-blue);
+  background: var(--accent-blue-light);
+}
+
+[data-theme='dark'] .Navbar__MenuLink--active {
+  background: rgba(37, 99, 235, 0.15);
 }
 
 .Navbar__MenuLink:active {

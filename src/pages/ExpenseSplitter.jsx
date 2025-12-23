@@ -7,9 +7,17 @@ import InputModal from '../components/InputModal';
 import AlertModal from '../components/AlertModal';
 import './ExpenseSplitter.css';
 
-export default function ExpenseSplitter() {
+export default function ExpenseSplitter({ onExpensesChange }) {
   const [users, setUsers] = useState(['You', 'Friend 1', 'Friend 2']);
   const [expenses, setExpenses] = useState([]);
+
+  // Notify parent when expenses change
+  const updateExpenses = (newExpenses) => {
+    setExpenses(newExpenses);
+    if (onExpensesChange) {
+      onExpensesChange(newExpenses);
+    }
+  };
   const [showAddExpense, setShowAddExpense] = useState(false);
   const [showAddUserModal, setShowAddUserModal] = useState(false);
   const [showAlertModal, setShowAlertModal] = useState(false);
@@ -50,14 +58,15 @@ export default function ExpenseSplitter() {
       return;
     }
 
-    setExpenses([
+    const updatedExpenses = [
       ...expenses,
       {
         ...newExpense,
         id: Date.now(),
         amount: parseFloat(newExpense.amount)
       }
-    ]);
+    ];
+    updateExpenses(updatedExpenses);
 
     setNewExpense({
       description: '',
@@ -80,7 +89,8 @@ export default function ExpenseSplitter() {
   };
 
   const deleteExpense = (id) => {
-    setExpenses(expenses.filter(exp => exp.id !== id));
+    const updatedExpenses = expenses.filter(exp => exp.id !== id);
+    updateExpenses(updatedExpenses);
   };
 
   return (
@@ -294,4 +304,8 @@ export default function ExpenseSplitter() {
     </section>
   );
 }
+
+ExpenseSplitter.propTypes = {
+  onExpensesChange: PropTypes.func
+};
 

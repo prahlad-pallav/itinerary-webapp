@@ -1,0 +1,229 @@
+.PackingEssentials {
+  margin: 32px 0;
+  padding: 24px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  background: var(--bg-card);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px var(--shadow);
+}
+
+[data-theme='light'] .PackingEssentials {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.8));
+  box-shadow: 0 4px 24px var(--shadow-medium);
+}
+
+.PackingEssentials__Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.PackingEssentials__Stats {
+  display: flex;
+  gap: 20px;
+  text-align: right;
+}
+
+.PackingEssentials__Stats .Value--large {
+  font-size: 24px;
+  margin-top: 4px;
+}
+
+.PackingEssentials__ProgressBar {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-tertiary);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-light);
+}
+
+.PackingEssentials__ProgressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.PackingEssentials__Controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.PackingEssentials__Content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.PackingEssentials__Category {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+[data-theme='light'] .PackingEssentials__Category {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.PackingEssentials__CategoryTitle {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.PackingEssentials__ItemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.PackingEssentials__Item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  transition: all 0.2s ease;
+}
+
+.PackingEssentials__Item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.PackingEssentials__Item--packed {
+  opacity: 0.6;
+  background: var(--bg-tertiary);
+}
+
+.PackingEssentials__Item--packed .PackingEssentials__ItemName {
+  text-decoration: line-through;
+  color: var(--text-tertiary);
+}
+
+.PackingEssentials__ItemLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.PackingEssentials__Checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--accent-green);
+}
+
+.PackingEssentials__ItemInfo {
+  flex: 1;
+}
+
+.PackingEssentials__ItemName {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.PackingEssentials__ItemQuantity {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.PackingEssentials__ItemActions {
+  display: flex;
+  gap: 8px;
+}
+
+.PackingEssentials__AddForm {
+  padding: 20px;
+  border-radius: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  margin-bottom: 24px;
+  box-shadow: 0 2px 12px var(--shadow);
+}
+
+.PackingEssentials__AddForm h3 {
+  margin: 0 0 16px;
+  font-size: 18px;
+  color: var(--text-primary);
+}
+
+.PackingEssentials__FormGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.PackingEssentials__FormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.PackingEssentials__FormGroup label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.PackingEssentials__FormGroup input,
+.PackingEssentials__FormGroup select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.PackingEssentials__FormGroup input:focus,
+.PackingEssentials__FormGroup select:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+}
+
+.PackingEssentials__FormActions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+@media (max-width: 960px) {
+  .PackingEssentials__Header {
+    flex-direction: column;
+  }
+
+  .PackingEssentials__Stats {
+    text-align: left;
+    flex-wrap: wrap;
+  }
+
+  .PackingEssentials__Content {
+    grid-template-columns: 1fr;
+  }
+
+  .PackingEssentials__FormGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
