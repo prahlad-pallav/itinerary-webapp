@@ -1,0 +1,50 @@
+.InputModal__Form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.InputModal__Group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.InputModal__Label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.InputModal__Input {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 15px;
+  width: 100%;
+  transition: border-color 0.2s ease;
+}
+
+.InputModal__Input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.InputModal__Input--error {
+  border-color: #ef4444;
+}
+
+.InputModal__Error {
+  margin: 0;
+  color: #ef4444;
+  font-size: 13px;
+}
+
+.InputModal__Actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+

@@ -1,0 +1,84 @@
+.Navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 16, 33, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 20px;
+  margin-bottom: 24px;
+}
+
+.Navbar__Container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.Navbar__Brand {
+}
+
+.Navbar__Brand h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #60a5fa, #22c55e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.Navbar__Menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 24px;
+  align-items: center;
+}
+
+.Navbar__MenuItem {
+  margin: 0;
+}
+
+.Navbar__MenuLink {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.Navbar__MenuLink:hover {
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.Navbar__MenuLink:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 768px) {
+  .Navbar__Container {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  .Navbar__Menu {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .Navbar__MenuLink {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+}

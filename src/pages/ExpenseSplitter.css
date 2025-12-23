@@ -1,0 +1,309 @@
+.ExpenseSplitter {
+  margin: 32px 0;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.55), rgba(30, 41, 59, 0.25));
+  backdrop-filter: blur(8px);
+}
+
+.ExpenseSplitter__Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.ExpenseSplitter__Stats {
+  display: flex;
+  gap: 20px;
+  text-align: right;
+}
+
+.ExpenseSplitter__Stats .Value--large {
+  font-size: 24px;
+  margin-top: 4px;
+}
+
+.ExpenseSplitter__Controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 14px;
+}
+
+.ExpenseSplitter__UsersSection {
+  flex: 1;
+}
+
+.ExpenseSplitter__UsersHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ExpenseSplitter__UsersHeader label {
+  font-weight: 600;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.ExpenseSplitter__UsersList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ExpenseSplitter__UserChip {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.15);
+  color: #bfdbfe;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.ExpenseSplitter__AddForm {
+  padding: 20px;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 24px;
+}
+
+.ExpenseSplitter__AddForm h3 {
+  margin: 0 0 16px;
+  font-size: 18px;
+}
+
+.ExpenseSplitter__FormGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ExpenseSplitter__FormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ExpenseSplitter__FormGroup label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.ExpenseSplitter__FormGroup input,
+.ExpenseSplitter__FormGroup select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 14px;
+}
+
+.ExpenseSplitter__ParticipantsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.ExpenseSplitter__ParticipantBtn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0f172a;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 13px;
+}
+
+.ExpenseSplitter__ParticipantBtn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.ExpenseSplitter__ParticipantBtn--active {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: #3b82f6;
+  color: #bfdbfe;
+}
+
+.ExpenseSplitter__Content {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+}
+
+.ExpenseSplitter__ExpensesList h3,
+.ExpenseSplitter__BalancesSection h3 {
+  margin: 0 0 16px;
+  font-size: 18px;
+}
+
+.ExpenseSplitter__ExpensesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ExpenseCard {
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ExpenseCard__Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.ExpenseCard__Header h4 {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+
+.ExpenseCard__Body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.ExpenseCard__Amount .Value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #22c55e;
+}
+
+.ExpenseCard__Split {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ExpenseCard__Participants {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+}
+
+.ExpenseCard__ParticipantsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.ExpenseSplitter__BalancesList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.BalanceItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.BalanceItem__Info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.BalanceItem__From {
+  color: #ef4444;
+  font-weight: 600;
+  margin: 0;
+}
+
+.BalanceItem__To {
+  color: #22c55e;
+  font-weight: 600;
+  margin: 0;
+}
+
+.BalanceItem__Arrow {
+  color: #94a3b8;
+}
+
+.BalanceItem__Amount {
+  font-weight: 700;
+  font-size: 16px;
+  margin: 0;
+}
+
+.BalanceItem__Amount--positive {
+  color: #22c55e;
+}
+
+.BalanceItem__Amount--negative {
+  color: #ef4444;
+}
+
+.ExpenseSplitter__IndividualBalances {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ExpenseSplitter__IndividualBalances h4 {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+.BalanceItem__Name {
+  color: #cbd5e1;
+  margin: 0;
+  font-size: 14px;
+}
+
+.Button--small {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+@media (max-width: 960px) {
+  .ExpenseSplitter__Content {
+    grid-template-columns: 1fr;
+  }
+
+  .ExpenseSplitter__Header {
+    flex-direction: column;
+  }
+
+  .ExpenseSplitter__Stats {
+    text-align: left;
+  }
+
+  .ExpenseSplitter__Controls {
+    flex-direction: column;
+  }
+
+  .ExpenseSplitter__FormGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ExpenseCard__Body {
+    grid-template-columns: 1fr;
+  }
+}

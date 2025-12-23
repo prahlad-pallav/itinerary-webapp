@@ -1,0 +1,567 @@
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #0f172a;
+  background-color: #0b1021;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #e2e8f0;
+  background: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1), transparent 25%),
+    radial-gradient(circle at 90% 10%, rgba(16, 185, 129, 0.1), transparent 25%),
+    #0b1021;
+}
+
+/* Utility Classes */
+.Label {
+  color: #94a3b8;
+  font-size: 13px;
+  margin: 0;
+}
+
+.Value {
+  margin: 2px 0 0;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.Value--large {
+  font-size: 24px;
+}
+
+.Pill {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.15);
+  color: #bfdbfe;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.Pill--dark {
+  background: rgba(255, 255, 255, 0.06);
+  color: #e2e8f0;
+}
+
+.Lede {
+  color: #cbd5e1;
+  max-width: 640px;
+}
+
+.Lede--small {
+  max-width: 520px;
+}
+
+.Eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.Description {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.Hint {
+  color: #94a3b8;
+  margin: 4px 0 0;
+}
+
+.Empty {
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #cbd5e1;
+}
+
+.MiniChip {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #cbd5e1;
+  font-size: 12px;
+}
+
+.Button {
+  border: none;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.05s ease, opacity 0.1s ease;
+}
+
+.Button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.Button--primary {
+  padding: 10px 14px;
+  background: linear-gradient(135deg, #2563eb, #22c55e);
+  color: #0b1021;
+}
+
+.Button--ghost {
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
+  color: #e2e8f0;
+}
+
+.Button--small {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+/* Page Block */
+.Page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+/* Hero Block */
+.Hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.55), rgba(30, 41, 59, 0.25));
+  backdrop-filter: blur(8px);
+}
+
+.Hero h1 {
+  margin: 12px 0 8px;
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+.Hero__Actions {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0 10px;
+}
+
+.Hero__MetaRow {
+  display: flex;
+  gap: 12px;
+  color: #94a3b8;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+.HeroCard {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  padding: 20px;
+  color: #e2e8f0;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+.HeroCard__StatRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+/* Filters Block */
+.Filters {
+  margin: 28px 0 12px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.InputGroup {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.InputGroup--compact {
+  display: grid;
+  grid-template-columns: auto 160px;
+  align-items: center;
+  gap: 10px;
+}
+
+.InputGroup label {
+  display: block;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-bottom: 6px;
+}
+
+.InputGroup input,
+.InputGroup select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 15px;
+}
+
+.Chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.Chip {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0f172a;
+  color: #cbd5e1;
+  cursor: pointer;
+}
+
+.Chip--active {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+/* Grid Block */
+.Grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 12px 0 28px;
+}
+
+/* Card Block */
+.Card {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.Card__Image {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+.Card__Body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.Card__Head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.Card h3 {
+  margin: 2px 0 0;
+}
+
+.Card__TagRow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.Card__Footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.Rating {
+  background: rgba(34, 197, 94, 0.1);
+  color: #34d399;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+/* Plan Block */
+.Plan {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 20px;
+  margin: 12px 0 32px;
+}
+
+.Plan__Head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.Plan__List {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.PlanItem {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.PlanItem__Controls {
+  display: grid;
+  gap: 6px;
+  justify-items: end;
+}
+
+.Nights {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.Nights button {
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+}
+
+.Budget {
+  min-width: 160px;
+  text-align: right;
+}
+
+.Itinerary {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 16px;
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.Itinerary ul {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  display: grid;
+  gap: 12px;
+}
+
+.Itinerary li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.DayCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(59, 130, 246, 0.15);
+  color: #bfdbfe;
+  font-weight: 700;
+}
+
+/* Weather Block */
+.Weather {
+  margin: 32px 0 20px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.7);
+}
+
+.Weather__Header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.Weather__Controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  min-width: 220px;
+}
+
+.Weather__InputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.Weather__InputGroup label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.Weather__Placeholder {
+  padding: 20px;
+  text-align: center;
+  color: #94a3b8;
+}
+
+.Weather__Grid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 0.6fr;
+  gap: 12px;
+}
+
+.WeatherCard {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.WeatherCard__Main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.MiniMetrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  text-align: right;
+}
+
+.WeatherCard__Subgrid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 8px;
+}
+
+.MiniCard {
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+}
+
+.WeatherNote {
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  padding: 16px;
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.AqiSection {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.AqiSection__Main {
+  margin-bottom: 12px;
+}
+
+.AqiBadge {
+  display: inline-block;
+}
+
+.AqiSection__Details {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.AqiDetailItem {
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+}
+
+.AqiDetailItem .Label {
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.AqiDetailItem .Value {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Footer Block */
+.Footer {
+  margin-top: 28px;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(15, 23, 42, 0.9));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.Footer__CtaRow {
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 960px) {
+  .Hero,
+  .Plan,
+  .Weather__Grid {
+    grid-template-columns: 1fr;
+  }
+
+  .PlanItem {
+    grid-template-columns: 1fr;
+  }
+
+  .HeroCard {
+    order: -1;
+  }
+
+  .Weather__Controls {
+    grid-template-columns: 1fr;
+  }
+
+  .Weather__Header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .AqiSection__Details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
