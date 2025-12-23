@@ -6,7 +6,7 @@
 
 .AlertModal__Message {
   margin: 0;
-  color: #cbd5e1;
+  color: var(--text-secondary);
   font-size: 15px;
   line-height: 1.6;
 }

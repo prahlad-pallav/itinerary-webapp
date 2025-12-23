@@ -2,11 +2,17 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(11, 16, 33, 0.95);
+  background: var(--bg-overlay);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--border-color);
   padding: 0 20px;
   margin-bottom: 24px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+[data-theme='light'] .Navbar {
+  box-shadow: 0 2px 12px var(--shadow-medium);
 }
 
 .Navbar__Container {
@@ -31,6 +37,12 @@
   background-clip: text;
 }
 
+.Navbar__Right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .Navbar__Menu {
   display: flex;
   list-style: none;
@@ -45,7 +57,7 @@
 }
 
 .Navbar__MenuLink {
-  color: #cbd5e1;
+  color: var(--text-secondary);
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
@@ -56,8 +68,8 @@
 }
 
 .Navbar__MenuLink:hover {
-  color: #e2e8f0;
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
 }
 
 .Navbar__MenuLink:active {
@@ -71,10 +83,17 @@
     padding: 12px 0;
   }
 
-  .Navbar__Menu {
-    gap: 16px;
+  .Navbar__Right {
+    width: 100%;
+    justify-content: space-between;
     flex-wrap: wrap;
-    justify-content: center;
+  }
+
+  .Navbar__Menu {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex: 1;
   }
 
   .Navbar__MenuLink {

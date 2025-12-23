@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import ThemeToggle from './ThemeToggle';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -23,28 +24,31 @@ export default function Navbar() {
         <div className="Navbar__Brand">
           <h2>✈️ Vacation Planner</h2>
         </div>
-        <ul className="Navbar__Menu">
-          <li className="Navbar__MenuItem">
-            <a href="#destinations" className="Navbar__MenuLink" onClick={(e) => handleNavClick(e, 'destinations')}>
-              Destinations
-            </a>
-          </li>
-          <li className="Navbar__MenuItem">
-            <a href="#weather" className="Navbar__MenuLink" onClick={(e) => handleNavClick(e, 'weather')}>
-              Weather
-            </a>
-          </li>
-          <li className="Navbar__MenuItem">
-            <a href="#plan" className="Navbar__MenuLink" onClick={(e) => handleNavClick(e, 'plan')}>
-              My Plan
-            </a>
-          </li>
-          <li className="Navbar__MenuItem">
-            <a href="#expenses" className="Navbar__MenuLink" onClick={(e) => handleNavClick(e, 'expenses')}>
-              Expenses
-            </a>
-          </li>
-        </ul>
+        <div className="Navbar__Right">
+          <ul className="Navbar__Menu">
+            <li className="Navbar__MenuItem">
+              <a href="#destinations" className="Navbar__MenuLink" onClick={(e) => handleNavClick(e, 'destinations')}>
+                Destinations
+              </a>
+            </li>
+            <li className="Navbar__MenuItem">
+              <a href="#weather" className="Navbar__MenuLink" onClick={(e) => handleNavClick(e, 'weather')}>
+                Weather
+              </a>
+            </li>
+            <li className="Navbar__MenuItem">
+              <a href="#plan" className="Navbar__MenuLink" onClick={(e) => handleNavClick(e, 'plan')}>
+                My Plan
+              </a>
+            </li>
+            <li className="Navbar__MenuItem">
+              <a href="#expenses" className="Navbar__MenuLink" onClick={(e) => handleNavClick(e, 'expenses')}>
+                Expenses
+              </a>
+            </li>
+          </ul>
+          <ThemeToggle />
+        </div>
       </div>
     </nav>
   );
