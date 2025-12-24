@@ -1,8 +1,13 @@
- import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Calendar from 'react-calendar';
 import PropTypes from 'prop-types';
 import AlertModal from '../components/AlertModal';
 import InputModal from '../components/InputModal';
+import SectionHeader from '../components/common/SectionHeader';
+import StatsCard from '../components/common/StatsCard';
+import FormField from '../components/common/FormField';
+import FormGrid from '../components/common/FormGrid';
+import FormActions from '../components/common/FormActions';
 import './TripCalendar.css';
 import 'react-calendar/dist/Calendar.css';
 
@@ -297,35 +302,30 @@ export default function TripCalendar({ plan = [] }) {
 
   return (
     <div className="TripCalendar">
-      <div className="TripCalendar__Header">
-        <div>
-          <p className="Pill Pill--dark">Trip Calendar</p>
-          <h2>Plan your trip dates</h2>
-          <p className="Lede Lede--small">
-            Visualize your trip schedule, add custom events, and sync with Google Calendar.
-          </p>
-        </div>
-        <div className="TripCalendar__Actions">
-          {!isGoogleConnected ? (
-            <button className="Button Button--primary" onClick={handleConnectGoogle}>
-              Connect Google Calendar
+      <SectionHeader
+        pill="Trip Calendar"
+        title="Plan your trip dates"
+        description="Visualize your trip schedule, add custom events, and sync with Google Calendar."
+      >
+        {!isGoogleConnected ? (
+          <button className="Button Button--primary" onClick={handleConnectGoogle}>
+            Connect Google Calendar
+          </button>
+        ) : (
+          <>
+            <button
+              className="Button Button--primary"
+              onClick={handleSyncToGoogle}
+              disabled={isSyncing || tripEvents.length === 0}
+            >
+              {isSyncing ? 'Syncing...' : 'Sync to Google Calendar'}
             </button>
-          ) : (
-            <>
-              <button
-                className="Button Button--primary"
-                onClick={handleSyncToGoogle}
-                disabled={isSyncing || tripEvents.length === 0}
-              >
-                {isSyncing ? 'Syncing...' : 'Sync to Google Calendar'}
-              </button>
-              <button className="Button Button--ghost" onClick={handleDisconnectGoogle}>
-                Disconnect
-              </button>
-            </>
-          )}
-        </div>
-      </div>
+            <button className="Button Button--ghost" onClick={handleDisconnectGoogle}>
+              Disconnect
+            </button>
+          </>
+        )}
+      </SectionHeader>
 
       <div className="TripCalendar__Content">
         <div className="TripCalendar__CalendarWrapper">
@@ -388,22 +388,17 @@ export default function TripCalendar({ plan = [] }) {
           </div>
 
           <div className="TripCalendar__Stats">
-            <div>
-              <p className="Label">Total Events</p>
-              <p className="Value Value--large">{tripEvents.length}</p>
-            </div>
-            <div>
-              <p className="Label">Trip Destinations</p>
-              <p className="Value Value--large">
-                {tripEvents.filter((e) => e.type === 'trip').length}
-              </p>
-            </div>
-            <div>
-              <p className="Label">Custom Events</p>
-              <p className="Value Value--large">
-                {tripEvents.filter((e) => e.type === 'custom').length}
-              </p>
-            </div>
+            <StatsCard label="Total Events" value={tripEvents.length} large />
+            <StatsCard
+              label="Trip Destinations"
+              value={tripEvents.filter((e) => e.type === 'trip').length}
+              large
+            />
+            <StatsCard
+              label="Custom Events"
+              value={tripEvents.filter((e) => e.type === 'custom').length}
+              large
+            />
           </div>
         </div>
       </div>
@@ -411,53 +406,55 @@ export default function TripCalendar({ plan = [] }) {
       {showAddEventModal && (
         <div className="TripCalendar__AddForm">
           <h3>Add Event</h3>
-          <div className="TripCalendar__FormGroup">
-            <label>Event Title *</label>
-            <input
-              type="text"
-              value={newEvent.title}
-              onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
-              placeholder="e.g., Flight departure, Hotel check-in"
+          <FormField
+            label="Event Title"
+            name="title"
+            type="text"
+            value={newEvent.title}
+            onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
+            placeholder="e.g., Flight departure, Hotel check-in"
+            required
+          />
+          <FormGrid>
+            <FormField
+              label="Start Date"
+              name="startDate"
+              type="date"
+              value={newEvent.startDate}
+              onChange={(e) => setNewEvent({ ...newEvent, startDate: e.target.value })}
+              required
             />
-          </div>
-          <div className="TripCalendar__FormGrid">
-            <div className="TripCalendar__FormGroup">
-              <label>Start Date *</label>
-              <input
-                type="date"
-                value={newEvent.startDate}
-                onChange={(e) => setNewEvent({ ...newEvent, startDate: e.target.value })}
-              />
-            </div>
-            <div className="TripCalendar__FormGroup">
-              <label>End Date</label>
-              <input
-                type="date"
-                value={newEvent.endDate}
-                onChange={(e) => setNewEvent({ ...newEvent, endDate: e.target.value })}
-                min={newEvent.startDate}
-              />
-            </div>
-          </div>
-          <div className="TripCalendar__FormGroup">
-            <label>Location</label>
-            <input
-              type="text"
-              value={newEvent.location}
-              onChange={(e) => setNewEvent({ ...newEvent, location: e.target.value })}
-              placeholder="e.g., Airport, Hotel name"
+            <FormField
+              label="End Date"
+              name="endDate"
+              type="date"
+              value={newEvent.endDate}
+              onChange={(e) => setNewEvent({ ...newEvent, endDate: e.target.value })}
+              min={newEvent.startDate}
             />
-          </div>
-          <div className="TripCalendar__FormGroup">
-            <label>Description</label>
+          </FormGrid>
+          <FormField
+            label="Location"
+            name="location"
+            type="text"
+            value={newEvent.location}
+            onChange={(e) => setNewEvent({ ...newEvent, location: e.target.value })}
+            placeholder="e.g., Airport, Hotel name"
+          />
+          <FormField
+            label="Description"
+            name="description"
+            value={newEvent.description}
+            onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
+          >
             <textarea
               value={newEvent.description}
               onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
               placeholder="Additional notes..."
               rows="3"
             />
-          </div>
-          <div className="TripCalendar__FormActions">
+          </FormField>
+          <FormActions>
             <button
               className="Button Button--ghost"
               onClick={() => {
@@ -476,7 +473,7 @@ export default function TripCalendar({ plan = [] }) {
             <button className="Button Button--primary" onClick={() => handleAddEvent(newEvent.title)}>
               Add Event
             </button>
-          </div>
+          </FormActions>
         </div>
       )}
 

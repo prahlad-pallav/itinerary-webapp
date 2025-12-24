@@ -5,6 +5,11 @@ import { useExpenseBalances } from '../hooks/useExpenseBalances';
 import { EXPENSE_CATEGORIES } from '../constants/destinations';
 import InputModal from '../components/InputModal';
 import AlertModal from '../components/AlertModal';
+import SectionHeader from '../components/common/SectionHeader';
+import StatsCard from '../components/common/StatsCard';
+import FormField from '../components/common/FormField';
+import FormGrid from '../components/common/FormGrid';
+import FormActions from '../components/common/FormActions';
 import './ExpenseSplitter.css';
 
 export default function ExpenseSplitter({ onExpensesChange }) {
@@ -95,25 +100,16 @@ export default function ExpenseSplitter({ onExpensesChange }) {
 
   return (
     <section id="expenses" className="ExpenseSplitter">
-      <div className="ExpenseSplitter__Header">
-        <div>
-          <p className="Pill Pill--dark">Expense Splitter</p>
-          <h2>Split expenses with your travel group</h2>
-          <p className="Lede Lede--small">
-            Track shared costs, see who owes whom, and settle up easily.
-          </p>
-        </div>
+      <SectionHeader
+        pill="Expense Splitter"
+        title="Split expenses with your travel group"
+        description="Track shared costs, see who owes whom, and settle up easily."
+      >
         <div className="ExpenseSplitter__Stats">
-          <div>
-            <p className="Label">Total Expenses</p>
-            <p className="Value Value--large">{formatCurrencyWithDecimals(totalExpenses)}</p>
-          </div>
-          <div>
-            <p className="Label">Expenses Count</p>
-            <p className="Value Value--large">{expenses.length}</p>
-          </div>
+          <StatsCard label="Total Expenses" value={formatCurrencyWithDecimals(totalExpenses)} large />
+          <StatsCard label="Expenses Count" value={expenses.length} large />
         </div>
-      </div>
+      </SectionHeader>
 
       <div className="ExpenseSplitter__Controls">
         <div className="ExpenseSplitter__UsersSection">
@@ -135,28 +131,30 @@ export default function ExpenseSplitter({ onExpensesChange }) {
       {showAddExpense && (
         <div className="ExpenseSplitter__AddForm">
           <h3>Add New Expense</h3>
-          <div className="ExpenseSplitter__FormGrid">
-            <div className="ExpenseSplitter__FormGroup">
-              <label>Description</label>
-              <input
-                type="text"
-                value={newExpense.description}
-                onChange={(e) => setNewExpense({ ...newExpense, description: e.target.value })}
-                placeholder="e.g., Dinner at restaurant"
-              />
-            </div>
-            <div className="ExpenseSplitter__FormGroup">
-              <label>Amount ($)</label>
-              <input
-                type="number"
-                step="0.01"
-                value={newExpense.amount}
-                onChange={(e) => setNewExpense({ ...newExpense, amount: e.target.value })}
-                placeholder="0.00"
-              />
-            </div>
-            <div className="ExpenseSplitter__FormGroup">
-              <label>Paid By</label>
+          <FormGrid>
+            <FormField
+              label="Description"
+              name="description"
+              type="text"
+              value={newExpense.description}
+              onChange={(e) => setNewExpense({ ...newExpense, description: e.target.value })}
+              placeholder="e.g., Dinner at restaurant"
+            />
+            <FormField
+              label="Amount ($)"
+              name="amount"
+              type="number"
+              step="0.01"
+              value={newExpense.amount}
+              onChange={(e) => setNewExpense({ ...newExpense, amount: e.target.value })}
+              placeholder="0.00"
+            />
+            <FormField
+              label="Paid By"
+              name="paidBy"
+              value={newExpense.paidBy}
+              onChange={(e) => setNewExpense({ ...newExpense, paidBy: e.target.value })}
+            >
               <select
                 value={newExpense.paidBy}
                 onChange={(e) => setNewExpense({ ...newExpense, paidBy: e.target.value })}
@@ -165,9 +163,13 @@ export default function ExpenseSplitter({ onExpensesChange }) {
                   <option key={user} value={user}>{user}</option>
                 ))}
               </select>
-            </div>
-            <div className="ExpenseSplitter__FormGroup">
-              <label>Category</label>
+            </FormField>
+            <FormField
+              label="Category"
+              name="category"
+              value={newExpense.category}
+              onChange={(e) => setNewExpense({ ...newExpense, category: e.target.value })}
+            >
               <select
                 value={newExpense.category}
                 onChange={(e) => setNewExpense({ ...newExpense, category: e.target.value })}
@@ -176,10 +178,12 @@ export default function ExpenseSplitter({ onExpensesChange }) {
                   <option key={cat} value={cat}>{cat}</option>
                 ))}
               </select>
-            </div>
-          </div>
-          <div className="ExpenseSplitter__FormGroup">
-            <label>Split Between</label>
+            </FormField>
+          </FormGrid>
+          <FormField
+            label="Split Between"
+            name="participants"
+          >
             <div className="ExpenseSplitter__ParticipantsGrid">
               {users.map(user => (
                 <button
@@ -193,10 +197,12 @@ export default function ExpenseSplitter({ onExpensesChange }) {
                 </button>
               ))}
             </div>
-          </div>
-          <button className="Button Button--primary" onClick={handleAddExpense}>
-            Add Expense
-          </button>
+          </FormField>
+          <FormActions>
+            <button className="Button Button--primary" onClick={handleAddExpense}>
+              Add Expense
+            </button>
+          </FormActions>
         </div>
       )}
 

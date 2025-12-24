@@ -4,20 +4,6 @@
   margin: 0 auto;
 }
 
-.TripCalendar__Header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 2rem;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.TripCalendar__Actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
 
 .TripCalendar__Content {
   display: grid;
@@ -208,49 +194,6 @@
   color: var(--text-primary);
 }
 
-.TripCalendar__FormGroup {
-  margin-bottom: 1rem;
-}
-
-.TripCalendar__FormGroup label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-}
-
-.TripCalendar__FormGroup input,
-.TripCalendar__FormGroup textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: inherit;
-  font-size: 1rem;
-}
-
-.TripCalendar__FormGroup input:focus,
-.TripCalendar__FormGroup textarea:focus {
-  outline: none;
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 0 3px var(--accent-blue-light);
-}
-
-.TripCalendar__FormGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.TripCalendar__FormActions {
-  display: flex;
-  gap: 1rem;
-  justify-content: flex-end;
-  margin-top: 1.5rem;
-}
 
 /* Override react-calendar default styles */
 .react-calendar {

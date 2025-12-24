@@ -1,0 +1,22 @@
+.FormActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.FormActions--left {
+  justify-content: flex-start;
+}
+
+.FormActions--right {
+  justify-content: flex-end;
+}
+
+.FormActions--center {
+  justify-content: center;
+}
+
+.FormActions--space-between {
+  justify-content: space-between;
+}
+

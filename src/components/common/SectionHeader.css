@@ -1,0 +1,26 @@
+.SectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.SectionHeader__Actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+  .SectionHeader {
+    flex-direction: column;
+  }
+
+  .SectionHeader__Actions {
+    width: 100%;
+  }
+}
+

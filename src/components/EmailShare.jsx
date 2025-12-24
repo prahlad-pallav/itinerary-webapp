@@ -2,6 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import emailjs from '@emailjs/browser';
 import AlertModal from './AlertModal';
+import FormField from './common/FormField';
 import './EmailShare.css';
 
 export default function EmailShare({ plan, expenses, packingItems, userName = 'You' }) {
@@ -234,38 +235,44 @@ export default function EmailShare({ plan, expenses, packingItems, userName = 'Y
             </div>
 
             <div className="EmailShare__Body">
-              <div className="EmailShare__FormGroup">
-                <label>Your Email</label>
-                <input
-                  type="email"
-                  value={emailData.yourEmail}
-                  onChange={(e) => setEmailData({ ...emailData, yourEmail: e.target.value })}
-                  placeholder="your.email@example.com"
-                  required
-                />
-              </div>
+              <FormField
+                label="Your Email"
+                name="yourEmail"
+                type="email"
+                value={emailData.yourEmail}
+                onChange={(e) => setEmailData({ ...emailData, yourEmail: e.target.value })}
+                placeholder="your.email@example.com"
+                required
+              />
 
-              <div className="EmailShare__FormGroup">
-                <label>Partner Emails (comma-separated)</label>
+              <FormField
+                label="Partner Emails (comma-separated)"
+                name="partnerEmails"
+                type="text"
+                value={emailData.partnerEmails}
+                onChange={(e) => setEmailData({ ...emailData, partnerEmails: e.target.value })}
+                placeholder="friend1@example.com, friend2@example.com"
+                required
+              >
                 <input
                   type="text"
                   value={emailData.partnerEmails}
                   onChange={(e) => setEmailData({ ...emailData, partnerEmails: e.target.value })}
                   placeholder="friend1@example.com, friend2@example.com"
                   required
+                  className="FormField__Input"
                 />
                 <p className="EmailShare__Hint">Separate multiple emails with commas</p>
-              </div>
+              </FormField>
 
-              <div className="EmailShare__FormGroup">
-                <label>Subject</label>
-                <input
-                  type="text"
-                  value={emailData.subject}
-                  onChange={(e) => setEmailData({ ...emailData, subject: e.target.value })}
-                  placeholder="Trip Planning Details"
-                />
-              </div>
+              <FormField
+                label="Subject"
+                name="subject"
+                type="text"
+                value={emailData.subject}
+                onChange={(e) => setEmailData({ ...emailData, subject: e.target.value })}
+                placeholder="Trip Planning Details"
+              />
 
               <div className="EmailShare__FormGroup">
                 <label>What to Share</label>
@@ -304,15 +311,20 @@ export default function EmailShare({ plan, expenses, packingItems, userName = 'Y
                 )}
               </div>
 
-              <div className="EmailShare__FormGroup">
-                <label>Personal Message (optional)</label>
+              <FormField
+                label="Personal Message (optional)"
+                name="message"
+                value={emailData.message}
+                onChange={(e) => setEmailData({ ...emailData, message: e.target.value })}
+              >
                 <textarea
                   value={emailData.message}
                   onChange={(e) => setEmailData({ ...emailData, message: e.target.value })}
                   placeholder="Add a personal note to your partners..."
                   rows="3"
+                  className="FormField__Input"
                 />
-              </div>
+              </FormField>
             </div>
 
             <div className="EmailShare__Actions">

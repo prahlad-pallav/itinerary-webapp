@@ -1,0 +1,78 @@
+.FormField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.FormField__Label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.FormField__Required {
+  color: var(--accent-blue);
+  margin-left: 2px;
+}
+
+.FormField__Input,
+.FormField__Input select,
+.FormField__Input textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+}
+
+.FormField__Input:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px var(--accent-blue-light);
+}
+
+.FormField__Input--error {
+  border-color: #ef4444;
+}
+
+.FormField__Input--error:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.FormField__Error {
+  font-size: 12px;
+  color: #ef4444;
+  margin-top: -2px;
+}
+
+/* Support for select and textarea within FormField */
+.FormField select,
+.FormField textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+}
+
+.FormField select:focus,
+.FormField textarea:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px var(--accent-blue-light);
+}
+
+.FormField textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+

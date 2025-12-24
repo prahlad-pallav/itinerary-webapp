@@ -13,13 +13,6 @@
   box-shadow: 0 4px 24px var(--shadow-medium);
 }
 
-.ExpenseSplitter__Header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 24px;
-  margin-bottom: 24px;
-}
 
 .ExpenseSplitter__Stats {
   display: flex;
@@ -97,41 +90,6 @@
   font-size: 18px;
 }
 
-.ExpenseSplitter__FormGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.ExpenseSplitter__FormGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.ExpenseSplitter__FormGroup label {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-secondary);
-}
-
-.ExpenseSplitter__FormGroup input,
-.ExpenseSplitter__FormGroup select {
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  font-size: 14px;
-  transition: border-color 0.2s ease;
-}
-
-.ExpenseSplitter__FormGroup input:focus,
-.ExpenseSplitter__FormGroup select:focus {
-  outline: none;
-  border-color: var(--accent-blue);
-}
 
 .ExpenseSplitter__ParticipantsGrid {
   display: grid;

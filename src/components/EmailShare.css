@@ -67,40 +67,7 @@
 }
 
 .EmailShare__FormGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
   margin-bottom: 20px;
-}
-
-.EmailShare__FormGroup label {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-secondary);
-}
-
-.EmailShare__FormGroup input,
-.EmailShare__FormGroup textarea {
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid var(--border-color);
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  font-size: 15px;
-  width: 100%;
-  transition: border-color 0.2s ease;
-  font-family: inherit;
-}
-
-.EmailShare__FormGroup input:focus,
-.EmailShare__FormGroup textarea:focus {
-  outline: none;
-  border-color: var(--accent-blue);
-}
-
-.EmailShare__FormGroup textarea {
-  resize: vertical;
-  min-height: 80px;
 }
 
 .EmailShare__Hint {

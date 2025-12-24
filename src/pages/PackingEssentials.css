@@ -13,14 +13,6 @@
   box-shadow: 0 4px 24px var(--shadow-medium);
 }
 
-.PackingEssentials__Header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 24px;
-  margin-bottom: 24px;
-}
-
 .PackingEssentials__Stats {
   display: flex;
   gap: 20px;
@@ -166,53 +158,8 @@
   color: var(--text-primary);
 }
 
-.PackingEssentials__FormGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.PackingEssentials__FormGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.PackingEssentials__FormGroup label {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-secondary);
-}
-
-.PackingEssentials__FormGroup input,
-.PackingEssentials__FormGroup select {
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  font-size: 14px;
-  transition: border-color 0.2s ease;
-}
-
-.PackingEssentials__FormGroup input:focus,
-.PackingEssentials__FormGroup select:focus {
-  outline: none;
-  border-color: var(--accent-blue);
-}
-
-.PackingEssentials__FormActions {
-  display: flex;
-  gap: 12px;
-  justify-content: flex-end;
-}
 
 @media (max-width: 960px) {
-  .PackingEssentials__Header {
-    flex-direction: column;
-  }
-
   .PackingEssentials__Stats {
     text-align: left;
     flex-wrap: wrap;
@@ -222,8 +169,5 @@
     grid-template-columns: 1fr;
   }
 
-  .PackingEssentials__FormGrid {
-    grid-template-columns: 1fr;
-  }
 }
 

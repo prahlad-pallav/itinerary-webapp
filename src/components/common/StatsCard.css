@@ -1,0 +1,12 @@
+.StatsCard {
+  text-align: center;
+}
+
+.StatsCard .Label {
+  margin-bottom: 4px;
+}
+
+.StatsCard .Value {
+  margin: 0;
+}
+

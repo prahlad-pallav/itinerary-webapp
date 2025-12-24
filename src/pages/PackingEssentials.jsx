@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import InputModal from '../components/InputModal';
 import AlertModal from '../components/AlertModal';
 import EmailShare from '../components/EmailShare';
+import SectionHeader from '../components/common/SectionHeader';
+import StatsCard from '../components/common/StatsCard';
+import FormField from '../components/common/FormField';
+import FormGrid from '../components/common/FormGrid';
+import FormActions from '../components/common/FormActions';
 import './PackingEssentials.css';
 
 const PACKING_CATEGORIES = [
@@ -128,29 +133,17 @@ export default function PackingEssentials() {
 
   return (
     <section id="packing" className="PackingEssentials">
-      <div className="PackingEssentials__Header">
-        <div>
-          <p className="Pill Pill--dark">Packing Essentials</p>
-          <h2>Never forget what to pack</h2>
-          <p className="Lede Lede--small">
-            Create your packing list, check off items as you pack, and stay organized.
-          </p>
-        </div>
+      <SectionHeader
+        pill="Packing Essentials"
+        title="Never forget what to pack"
+        description="Create your packing list, check off items as you pack, and stay organized."
+      >
         <div className="PackingEssentials__Stats">
-          <div>
-            <p className="Label">Total Items</p>
-            <p className="Value Value--large">{totalItems}</p>
-          </div>
-          <div>
-            <p className="Label">Packed</p>
-            <p className="Value Value--large">{packedItems}/{totalItems}</p>
-          </div>
-          <div>
-            <p className="Label">Progress</p>
-            <p className="Value Value--large">{progressPercentage}%</p>
-          </div>
+          <StatsCard label="Total Items" value={totalItems} large />
+          <StatsCard label="Packed" value={`${packedItems}/${totalItems}`} large />
+          <StatsCard label="Progress" value={`${progressPercentage}%`} large />
         </div>
-      </div>
+      </SectionHeader>
 
       <div className="PackingEssentials__ProgressBar">
         <div
@@ -230,23 +223,27 @@ export default function PackingEssentials() {
       {showAddModal && (
         <div className="PackingEssentials__AddForm">
           <h3>Add New Item</h3>
-          <div className="PackingEssentials__FormGrid">
-            <div className="PackingEssentials__FormGroup">
-              <label>Item Name</label>
-              <input
-                type="text"
-                value={newItem.name}
-                onChange={(e) => setNewItem({ ...newItem, name: e.target.value })}
-                placeholder="e.g., Passport, Charger, Toothbrush"
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' && newItem.name.trim()) {
-                    handleAddItem(newItem.name);
-                  }
-                }}
-              />
-            </div>
-            <div className="PackingEssentials__FormGroup">
-              <label>Category</label>
+          <FormGrid>
+            <FormField
+              label="Item Name"
+              name="itemName"
+              type="text"
+              value={newItem.name}
+              onChange={(e) => setNewItem({ ...newItem, name: e.target.value })}
+              placeholder="e.g., Passport, Charger, Toothbrush"
+              required
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && newItem.name.trim()) {
+                  handleAddItem(newItem.name);
+                }
+              }}
+            />
+            <FormField
+              label="Category"
+              name="category"
+              value={newItem.category}
+              onChange={(e) => setNewItem({ ...newItem, category: e.target.value })}
+            >
               <select
                 value={newItem.category}
                 onChange={(e) => setNewItem({ ...newItem, category: e.target.value })}
@@ -255,19 +252,18 @@ export default function PackingEssentials() {
                   <option key={cat} value={cat}>{cat}</option>
                 ))}
               </select>
-            </div>
-            <div className="PackingEssentials__FormGroup">
-              <label>Quantity</label>
-              <input
-                type="number"
-                min="1"
-                value={newItem.quantity}
-                onChange={(e) => setNewItem({ ...newItem, quantity: e.target.value })}
-                placeholder="1"
-              />
-            </div>
-          </div>
-          <div className="PackingEssentials__FormActions">
+            </FormField>
+            <FormField
+              label="Quantity"
+              name="quantity"
+              type="number"
+              min="1"
+              value={newItem.quantity}
+              onChange={(e) => setNewItem({ ...newItem, quantity: e.target.value })}
+              placeholder="1"
+            />
+          </FormGrid>
+          <FormActions>
             <button className="Button Button--ghost" onClick={() => {
               setShowAddModal(false);
               setNewItem({ name: '', category: 'Clothing', quantity: '1', packed: false });
@@ -277,30 +273,34 @@ export default function PackingEssentials() {
             <button className="Button Button--primary" onClick={() => handleAddItem(newItem.name)}>
               Add Item
             </button>
-          </div>
+          </FormActions>
         </div>
       )}
 
       {showEditModal && editingItem && (
         <div className="PackingEssentials__AddForm">
           <h3>Edit Item</h3>
-          <div className="PackingEssentials__FormGrid">
-            <div className="PackingEssentials__FormGroup">
-              <label>Item Name</label>
-              <input
-                type="text"
-                value={newItem.name}
-                onChange={(e) => setNewItem({ ...newItem, name: e.target.value })}
-                placeholder="e.g., Passport, Charger, Toothbrush"
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' && newItem.name.trim()) {
-                    handleEditItem(newItem.name);
-                  }
-                }}
-              />
-            </div>
-            <div className="PackingEssentials__FormGroup">
-              <label>Category</label>
+          <FormGrid>
+            <FormField
+              label="Item Name"
+              name="itemName"
+              type="text"
+              value={newItem.name}
+              onChange={(e) => setNewItem({ ...newItem, name: e.target.value })}
+              placeholder="e.g., Passport, Charger, Toothbrush"
+              required
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && newItem.name.trim()) {
+                  handleEditItem(newItem.name);
+                }
+              }}
+            />
+            <FormField
+              label="Category"
+              name="category"
+              value={newItem.category}
+              onChange={(e) => setNewItem({ ...newItem, category: e.target.value })}
+            >
               <select
                 value={newItem.category}
                 onChange={(e) => setNewItem({ ...newItem, category: e.target.value })}
@@ -309,19 +309,18 @@ export default function PackingEssentials() {
                   <option key={cat} value={cat}>{cat}</option>
                 ))}
               </select>
-            </div>
-            <div className="PackingEssentials__FormGroup">
-              <label>Quantity</label>
-              <input
-                type="number"
-                min="1"
-                value={newItem.quantity}
-                onChange={(e) => setNewItem({ ...newItem, quantity: e.target.value })}
-                placeholder="1"
-              />
-            </div>
-          </div>
-          <div className="PackingEssentials__FormActions">
+            </FormField>
+            <FormField
+              label="Quantity"
+              name="quantity"
+              type="number"
+              min="1"
+              value={newItem.quantity}
+              onChange={(e) => setNewItem({ ...newItem, quantity: e.target.value })}
+              placeholder="1"
+            />
+          </FormGrid>
+          <FormActions>
             <button className="Button Button--ghost" onClick={() => {
               setShowEditModal(false);
               setEditingItem(null);
@@ -332,7 +331,7 @@ export default function PackingEssentials() {
             <button className="Button Button--primary" onClick={() => handleEditItem(newItem.name)}>
               Save Changes
             </button>
-          </div>
+          </FormActions>
         </div>
       )}
 
