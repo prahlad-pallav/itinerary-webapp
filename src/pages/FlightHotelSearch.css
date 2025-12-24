@@ -1,0 +1,249 @@
+.FlightHotelSearch {
+  margin: 32px 0;
+  padding: 24px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  background: var(--bg-card);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px var(--shadow);
+}
+
+[data-theme='light'] .FlightHotelSearch {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.8));
+  box-shadow: 0 4px 24px var(--shadow-medium);
+}
+
+.FlightHotelSearch__Tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.FlightHotelSearch__Tab {
+  padding: 12px 24px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--text-secondary);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.FlightHotelSearch__Tab:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.FlightHotelSearch__Tab--active {
+  color: var(--accent-blue);
+  border-bottom-color: var(--accent-blue);
+}
+
+.FlightHotelSearch__SearchForm {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-color);
+}
+
+.FlightHotelSearch__Results {
+  margin-top: 32px;
+}
+
+.FlightHotelSearch__ResultsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.FlightHotelSearch__ResultsHeader h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 24px;
+}
+
+.FlightHotelSearch__PriceRange {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.FlightHotelSearch__ResultsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .FlightHotelSearch__ResultsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.FlightHotelSearch__ResultCard {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.2s;
+}
+
+.FlightHotelSearch__ResultCard:hover {
+  box-shadow: 0 4px 12px var(--shadow);
+  transform: translateY(-2px);
+}
+
+.FlightHotelSearch__ResultCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  gap: 16px;
+}
+
+.FlightHotelSearch__ResultCardHeader h4 {
+  margin: 0 0 4px 0;
+  color: var(--text-primary);
+  font-size: 18px;
+}
+
+.FlightHotelSearch__Price {
+  text-align: right;
+}
+
+.FlightHotelSearch__ResultCardBody {
+  margin-bottom: 16px;
+}
+
+.FlightHotelSearch__Route {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+  padding: 16px;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+}
+
+.FlightHotelSearch__Route > div {
+  flex: 1;
+  text-align: center;
+}
+
+.FlightHotelSearch__RouteArrow {
+  font-size: 24px;
+  color: var(--accent-blue);
+  font-weight: bold;
+}
+
+.FlightHotelSearch__FlightDetails {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+}
+
+.FlightHotelSearch__HotelRating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.FlightHotelSearch__HotelAmenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.FlightHotelSearch__AmenityTag {
+  padding: 4px 12px;
+  background: var(--bg-tertiary);
+  border-radius: 16px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.FlightHotelSearch__ResultCardActions {
+  display: flex;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+}
+
+.FlightHotelSearch__ResultCardActions .Button {
+  flex: 1;
+}
+
+.FlightHotelSearch__APIStatus {
+  padding: 6px 12px;
+  background: var(--accent-green-light);
+  color: var(--accent-green);
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+[data-theme='light'] .FlightHotelSearch__APIStatus {
+  background: var(--accent-green-light);
+  color: var(--accent-green);
+}
+
+@media (max-width: 768px) {
+  .FlightHotelSearch {
+    padding: 16px;
+  }
+
+  .FlightHotelSearch__Tabs {
+    flex-direction: column;
+    border-bottom: none;
+  }
+
+  .FlightHotelSearch__Tab {
+    border-bottom: none;
+    border-left: 3px solid transparent;
+    text-align: left;
+  }
+
+  .FlightHotelSearch__Tab--active {
+    border-left-color: var(--accent-blue);
+    border-bottom-color: transparent;
+  }
+
+  .FlightHotelSearch__ResultsHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .FlightHotelSearch__ResultCardHeader {
+    flex-direction: column;
+  }
+
+  .FlightHotelSearch__Price {
+    text-align: left;
+  }
+
+  .FlightHotelSearch__Route {
+    flex-direction: column;
+  }
+
+  .FlightHotelSearch__RouteArrow {
+    transform: rotate(90deg);
+  }
+}
+

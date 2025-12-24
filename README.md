@@ -173,6 +173,7 @@ vacation-app/
 |----------|-------------|----------|
 | `VITE_WEATHER_API_KEY` | WeatherAPI.com API key | Yes |
 | `VITE_GOOGLE_CLIENT_ID` | Google Calendar API client ID | No (optional for Google Calendar sync) |
+| `VITE_SERPAPI_KEY` | SerpApi API key for flight search | No (optional, falls back to mock data) |
 
 ### Getting Weather API Key
 
@@ -214,6 +215,31 @@ To enable Google Calendar sync functionality:
    ```
 
 **Note:** The calendar feature works without Google Calendar integration. You can still create and manage events locally. Google Calendar sync is an optional enhancement.
+
+### Setting Up SerpApi for Flight Search (Optional)
+
+To enable real-time flight search using [SerpApi Google Flights API](https://serpapi.com/google-flights-api):
+
+1. **Sign up for SerpApi**
+   - Go to [serpapi.com](https://serpapi.com/)
+   - Create an account (free tier available with 100 searches/month)
+   - Navigate to your dashboard
+
+2. **Get Your API Key**
+   - Go to "API Key" section in your account
+   - Copy your API key
+
+3. **Add to Environment Variables**
+   ```env
+   VITE_SERPAPI_KEY=your_serpapi_key_here
+   ```
+
+4. **Restart Development Server**
+   ```bash
+   npm run dev
+   ```
+
+**Note:** The flight search feature works without SerpApi integration. It will use sample/mock data if the API key is not provided. SerpApi integration provides real-time flight prices and availability from Google Flights.
 
 ## 🌐 Deployment
 

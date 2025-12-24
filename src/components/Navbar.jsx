@@ -117,6 +117,14 @@ export default function Navbar() {
                 Calendar
               </Link>
             </li>
+            <li className="Navbar__MenuItem">
+              <Link
+                to="/flights-hotels"
+                className={`Navbar__MenuLink ${isActive('/flights-hotels') ? 'Navbar__MenuLink--active' : ''}`}
+              >
+                Flights & Hotels
+              </Link>
+            </li>
           </ul>
           <ThemeToggle />
         </div>
