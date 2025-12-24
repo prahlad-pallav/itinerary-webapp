@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import HeroSection from './HeroSection';
 import Filters from '../components/Filters';
 import DestinationGrid from './DestinationGrid';
@@ -21,6 +21,11 @@ export default function Home() {
   const [weatherLocation, setWeatherLocation] = useState(weatherLocations[0]);
   const [weatherCitySearch, setWeatherCitySearch] = useState('');
   const apiKey = import.meta.env.VITE_WEATHER_API_KEY || '';
+
+  // Save plan to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('tripPlan', JSON.stringify(plan));
+  }, [plan]);
 
   const locationQuery = weatherCitySearch.trim() || weatherLocation.query;
   const { weather, status: weatherStatus, currentLocation: currentWeatherLocation } = useWeather(

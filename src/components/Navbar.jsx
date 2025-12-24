@@ -109,6 +109,14 @@ export default function Navbar() {
                 Packing
               </Link>
             </li>
+            <li className="Navbar__MenuItem">
+              <Link
+                to="/calendar"
+                className={`Navbar__MenuLink ${isActive('/calendar') ? 'Navbar__MenuLink--active' : ''}`}
+              >
+                Calendar
+              </Link>
+            </li>
           </ul>
           <ThemeToggle />
         </div>

@@ -1,0 +1,324 @@
+.TripCalendar {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.TripCalendar__Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.TripCalendar__Actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.TripCalendar__Content {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 968px) {
+  .TripCalendar__Content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.TripCalendar__CalendarWrapper {
+  background: var(--bg-card);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.TripCalendar__Calendar {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+}
+
+.TripCalendar__Calendar .react-calendar__tile {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  position: relative;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.TripCalendar__Calendar .react-calendar__tile:hover {
+  background: var(--bg-tertiary);
+}
+
+.TripCalendar__Calendar .react-calendar__tile--active {
+  background: var(--accent-blue);
+  color: var(--text-inverse);
+}
+
+.TripCalendar__Calendar .react-calendar__tile--now {
+  background: var(--accent-green);
+  color: var(--text-inverse);
+}
+
+.TripCalendar__Calendar .react-calendar__tile--neighboringMonth {
+  opacity: 0.4;
+}
+
+.TripCalendar__DateMarker {
+  display: flex;
+  gap: 2px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.TripCalendar__EventDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+}
+
+.TripCalendar__EventDot--trip {
+  background: var(--accent-green);
+}
+
+.TripCalendar__EventDot--custom {
+  background: var(--accent-blue);
+}
+
+.TripCalendar__Legend {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.TripCalendar__LegendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.TripCalendar__Sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.TripCalendar__Upcoming {
+  background: var(--bg-card);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.TripCalendar__Upcoming h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.TripCalendar__EventList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.TripCalendar__EventCard {
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.TripCalendar__EventCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.TripCalendar__EventCardHeader h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.TripCalendar__SyncedBadge {
+  background: var(--accent-green);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.TripCalendar__Stats {
+  background: var(--bg-card);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.TripCalendar__Stats > div {
+  text-align: center;
+}
+
+.TripCalendar__AddForm {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg-card);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 20px 60px var(--shadow);
+  z-index: 1000;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.TripCalendar__AddForm h3 {
+  margin: 0 0 1.5rem 0;
+  color: var(--text-primary);
+}
+
+.TripCalendar__FormGroup {
+  margin-bottom: 1rem;
+}
+
+.TripCalendar__FormGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.TripCalendar__FormGroup input,
+.TripCalendar__FormGroup textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.TripCalendar__FormGroup input:focus,
+.TripCalendar__FormGroup textarea:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px var(--accent-blue-light);
+}
+
+.TripCalendar__FormGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.TripCalendar__FormActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+/* Override react-calendar default styles */
+.react-calendar {
+  width: 100%;
+  background: transparent;
+  font-family: inherit;
+  border: none;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+  font-size: 1rem;
+  margin-top: 8px;
+  color: var(--text-primary);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: background 0.2s;
+}
+
+.react-calendar__navigation button:hover {
+  background: var(--bg-tertiary);
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background: var(--bg-tertiary);
+}
+
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  padding: 0.5rem;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: var(--text-primary);
+}
+
+.react-calendar__tile--hasActive {
+  background: var(--accent-blue-light);
+}
+
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+  background: var(--accent-blue-light);
+}
+
+.react-calendar__tile--range {
+  background: var(--accent-blue-light);
+}
+
+.react-calendar__tile--rangeStart,
+.react-calendar__tile--rangeEnd {
+  background: var(--accent-blue);
+  color: var(--text-inverse);
+}
+

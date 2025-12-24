@@ -49,6 +49,17 @@ A modern, feature-rich vacation planning application built with React and Redux.
 - Smooth theme transitions
 - Responsive design
 
+### 📅 Trip Calendar
+- Visual calendar display for trip dates
+- Auto-generate events from trip plan
+- Add custom events (flights, hotels, activities)
+- Click on dates to view/add events
+- Sync with Google Calendar
+- OAuth integration for Google Calendar
+- View upcoming events sidebar
+- Event statistics and tracking
+- Mark events as synced to Google Calendar
+
 ### 🎯 UI/UX Features
 - Modern glassmorphism design
 - Fully responsive (mobile, tablet, desktop)
@@ -126,7 +137,11 @@ vacation-app/
 │   │   ├── DestinationGrid.jsx
 │   │   ├── WeatherWidget.jsx
 │   │   ├── TripPlanner.jsx
-│   │   └── ExpenseSplitter.jsx
+│   │   ├── ExpenseSplitter.jsx
+│   │   ├── PackingEssentials.jsx
+│   │   ├── TripCalendar.jsx
+│   │   ├── CalendarPage.jsx
+│   │   └── PackingPage.jsx
 │   ├── hooks/               # Custom React hooks
 │   │   ├── useWeather.js
 │   │   └── useExpenseBalances.js
@@ -157,6 +172,7 @@ vacation-app/
 | Variable | Description | Required |
 |----------|-------------|----------|
 | `VITE_WEATHER_API_KEY` | WeatherAPI.com API key | Yes |
+| `VITE_GOOGLE_CLIENT_ID` | Google Calendar API client ID | No (optional for Google Calendar sync) |
 
 ### Getting Weather API Key
 
@@ -164,6 +180,40 @@ vacation-app/
 2. Navigate to your dashboard
 3. Copy your API key
 4. Add it to your `.env` file
+
+### Setting Up Google Calendar Integration (Optional)
+
+To enable Google Calendar sync functionality:
+
+1. **Create a Google Cloud Project**
+   - Go to [Google Cloud Console](https://console.cloud.google.com/)
+   - Create a new project or select an existing one
+
+2. **Enable Google Calendar API**
+   - Navigate to "APIs & Services" > "Library"
+   - Search for "Google Calendar API"
+   - Click "Enable"
+
+3. **Create OAuth 2.0 Credentials**
+   - Go to "APIs & Services" > "Credentials"
+   - Click "Create Credentials" > "OAuth client ID"
+   - Choose "Web application"
+   - Add authorized redirect URIs:
+     - `http://localhost:5173/calendar` (for development)
+     - `https://your-domain.com/calendar` (for production)
+   - Copy the Client ID
+
+4. **Add to Environment Variables**
+   ```env
+   VITE_GOOGLE_CLIENT_ID=your_client_id_here
+   ```
+
+5. **Restart Development Server**
+   ```bash
+   npm run dev
+   ```
+
+**Note:** The calendar feature works without Google Calendar integration. You can still create and manage events locally. Google Calendar sync is an optional enhancement.
 
 ## 🌐 Deployment
 
@@ -220,6 +270,20 @@ vercel
 
 - Click the theme toggle button in the navbar
 - Your preference is automatically saved
+
+### Using Trip Calendar
+
+1. Navigate to the **Calendar** page from the navbar
+2. View your trip plan automatically converted to calendar events
+3. Click on any date to:
+   - View existing events on that date
+   - Add a new custom event (flights, hotels, activities)
+4. **Connect Google Calendar** (optional):
+   - Click "Connect Google Calendar"
+   - Authorize the app in the Google OAuth popup
+   - Click "Sync to Google Calendar" to add all events
+5. View upcoming events in the sidebar
+6. Track event statistics (total events, trip destinations, custom events)
 
 ## 🎨 Design System
 
